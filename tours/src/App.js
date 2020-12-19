@@ -23,8 +23,9 @@ function App() {
     callTheApi();
   }, []);
   const loading = <Loading></Loading>;
-  const tour = <Tours allTours={tours}></Tours>;
-  return <div>{tours.length == 0 ? loading : tour}</div>;
+  const tour = <main><Tours allTours={tours}></Tours><button className="btn" onClick={()=>setTours(prevTours=> [])}> Remove all the Tours</button></main>;
+  return <>{tours.length == 0 ? loading : tour}</>
+
 }
 
 export default App;
