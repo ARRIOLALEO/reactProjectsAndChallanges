@@ -1,8 +1,12 @@
+import { all } from 'q';
 import React from 'react';
 import Tour from './Tour';
 const Tours = (allTours) => {
-  console.log(allTours)
-  return <h2>MArio</h2>;
+
+ const showTours = allTours.allTours.map(tourdisplay =><Tour key={tourdisplay.id} tourInfo={tourdisplay}/>)
+  return <div>
+ { showTours} 
+  </div>;
 
 };
 
