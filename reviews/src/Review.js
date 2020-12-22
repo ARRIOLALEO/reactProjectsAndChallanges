@@ -10,6 +10,20 @@ import {
 const Review = () => {
   const [review, setReview] = useState(0);
   const { image, name, text, job } = people[review];
+  const ramdomPerson = () =>{
+   let newIndex = Math.floor(Math.random() * people.length)
+   if(newIndex === review){
+     if(review  - 1 < 0 ){
+       setReview(people.length - 1)
+     }else if (review  + 1 > people.length - 1 ){
+      setReview(0)
+     }else{
+      setReview(newIndex)
+     }
+   }else{
+    setReview(newIndex)
+   }
+  }
   return (
     <article className="review">
       <div className="img-container">
@@ -42,6 +56,9 @@ const Review = () => {
         >
           <FaChevronRight />
         </button>
+        <button className='random-btn' onClick={()=>ramdomPerson()}>
+        surprise me
+      </button>
       </div>
     </article>
   );
