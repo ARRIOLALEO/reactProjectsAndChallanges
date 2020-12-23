@@ -5,10 +5,12 @@ import SingleQuestion from './Question';
 
 function App() {
   const questions = data.map(question =><SingleQuestion key={question.id} data={question}/>)
-  return <div className="section container ">
+  return<main> 
+    <div className=" container ">
     <div><h3>Some Information</h3></div>
-            {questions}
+         <section className="info">{questions}</section>   
   </div>;
+  </main>
 }
 
 export default App;
