@@ -1,9 +1,15 @@
-import React from 'react';
+import React from "react";
 
 const Categories = (props) => {
-  return <button onClick={()=>{
-    props.showCategory(props.food)
-  }}>{props.food}</button>;
+  return (
+    <button
+      onClick={() => {
+        props.showCategory(props.food);
+      }}
+    >
+      {props.food}
+    </button>
+  );
 };
 
 export default Categories;
