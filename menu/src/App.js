@@ -27,11 +27,29 @@ function App() {
       showCategory={showThisCategory}
     />
   ));
-  return (
-    <div>
+  return (<main>
+    <section className='menu section'>
+      <div className="title">
+      <h2>Our Menu</h2>
+      </div>
+      <div className="underline"> </div>
+      <div className="btn-container">
+      <button className="filter-btn"
+      onClick={() => {
+        setMenuItems(items)
+      }}
+    >
+      All
+    </button>
       {categories}
+      </div>
+      <div className="section-center">
       {menuItemsToShow}
-    </div>
+      </div>
+    </section>
+  </main>
+
+
   );
 }
 
