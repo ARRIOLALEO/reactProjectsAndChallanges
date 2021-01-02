@@ -1,13 +1,12 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { FaBars } from 'react-icons/fa'
-import {AppContext,useGlovalContext} from './context'
+import {useGlovalContext} from './context'
 const Home = () => {
-  const data = useGlovalContext()
-  console.log(data)
+  const {showPopUp,showSidebar}= useGlovalContext()
   return (
    <main>
-     <button className="sidebar-toggle"><FaBars/></button>
-     <button className="btn" onClick>Show Modal</button>
+     <button className="sidebar-toggle" onClick={showSidebar}><FaBars/></button>
+     <button className="btn" onClick={showPopUp}>Show Modal</button>
    </main>
     )
 }

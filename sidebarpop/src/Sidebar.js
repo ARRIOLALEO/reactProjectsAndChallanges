@@ -2,6 +2,8 @@ import React from 'react'
 import logo from './logo.svg'
 import { FaTimes } from 'react-icons/fa'
 import { social, links } from './data'
+import {useGlovalContext} from './context'
+
 const allLinks = links.map(link =>{
   return <li key={link.id}>
     <a href={link.url}>
@@ -19,10 +21,11 @@ const socialIcons = social.map(icone=>{
     </li>
 })
 const Sidebar = () => {
-  return <aside className={`sidebar`}>
+  const{sideBar,notShowSidebar} = useGlovalContext()
+  return <aside className={`sidebar ${sideBar && 'show-sidebar'}`}>
     <div className="sidebar-header">
       <img src={logo} className="logo" alt="logo"/>
-      <button className="close-btn">
+      <button className="close-btn" onClick={notShowSidebar}>
         <FaTimes/>
       </button>
     </div>
