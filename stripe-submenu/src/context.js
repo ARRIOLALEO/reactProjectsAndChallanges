@@ -5,7 +5,9 @@ import sublinks from './data'
 const AppContext = React.createContext()
 export const AppProvider =({children}) =>{
     const [isSidebarOpen ,setIsSideBarOpen] = useState(false)
-    const [isSubMenuOpen , setIsSubMenuOpen] = useState(true)
+    const [isSubMenuOpen , setIsSubMenuOpen] = useState(false)
+    const [isHovered , setIsHovered]  = useState("")
+    const [positionMenu ,setPositionMenu] = useState(0)
     const openSidebar = () =>{
         setIsSideBarOpen(true)
     }
@@ -18,13 +20,22 @@ export const AppProvider =({children}) =>{
     const closeSubMenu = () =>{
         setIsSubMenuOpen(false)
     }
+    const addTheHovered = (inforation,postion) =>{
+        setIsHovered(inforation.toLowerCase())
+        setPositionMenu(0)
+        setPositionMenu(postion)
+    }
   return <AppContext.Provider value={{
       isSidebarOpen,
       isSubMenuOpen,
       openSubMenu,
       openSidebar,
       closeSubMenu,
-      closeSidebar
+      closeSidebar,
+      addTheHovered,
+      isHovered,
+      positionMenu,
+      sublinks 
   }}>
       {children}
   </AppContext.Provider>
