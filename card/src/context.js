@@ -5,6 +5,7 @@ import reducer from './reducer'
 // I SWITCHED TO PERMANENT DOMAIN
 const url = 'https://course-api.com/react-useReducer-cart-project'
 const AppContext = React.createContext()
+
 const initialState ={
   loading:false,
   cart:cartItems,
@@ -20,10 +21,16 @@ const AppProvider = ({ children }) => {
  const removeItem =(id) =>{
    dispatch({type:'REMOVE_ITEM',payload:id})
  }
+ const addAnotherProduct = (id)=>{
+   dispatch({type:'ADD_PRODUCT',payload:id})
+ }
+ const removeProducts = (id)=>{
+   dispatch({type:'REMOVE' , payload:id})
+ }
   return (
     <AppContext.Provider
       value={{
-        ...state,clearCart,removeItem
+        ...state,clearCart,removeItem,addAnotherProduct,removeProducts
       }}
     >
       {children}
