@@ -28,5 +28,15 @@ export default function reducer(state,action) {
        }).filter(element => element.amount !== 0)
        return {...state,cart:tempCart}
    }
+   if(action.type === 'CHANGETOTAL'){
+     let totalAmount = state.cart.reduce((acc,element)=> {
+      return  acc += element.price * element.amount
+     },0 )
+     let totalElements = state.cart.reduce((acc,element)=>{
+         return acc += element.amount
+     },0)
+     console.log(totalAmount)
+     return {...state, total:totalAmount, amount: totalElements}
+   }
     return state
 }
